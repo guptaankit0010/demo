@@ -14,7 +14,7 @@
         function hide() {
 
                 $("bookmark-area").removeClass("resMenu");
-                vm.isMenuOpen=false;
+                vm.isMenuOpen=true;
 
         }
         return {
