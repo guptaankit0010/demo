@@ -1,0 +1,25 @@
+<div class="col-sm-9">
+    <!--SEARCH BAR VIEW-->
+    <div class="row search">
+            <form ng-submit="vm.searchWord(vm.word)">
+                <input type="search" name="search" id="searchInput" placeholder="Search a Word" ng-model="vm.word" autocomplete="off">
+                <a id="searchButton" ng-click="vm.searchWord(vm.word)"><i class="material-icons" id="searchButtonIcon">search</i></a>
+            </form>
+
+        <!--results View-->
+
+        <div ng-if="vm.isError" class="error">{{vm.error}}</div>
+        <div id="results"  ng-if="vm.isResultAvailable || vm.isBookmarkSelected">
+            <div style="position: relative">
+                <div id="wordSearched">{{vm.wordSearched}}</div>
+                <ul id="resultList" ng-repeat="definition in vm.allDefinitions">
+                    <li>
+                        <div><div class="well well-sm">{{definition}}</div></div>
+                    </li>
+                </ul>
+                <div  ng-click="vm.addBookmark(vm.word)"><i id="bookmarkButton" class="material-icons" ng-if="vm.isResultAvailable && !vm.isBookmarked">bookmark_border</i></div>
+                <div  ng-click="vm.remove(vm.word)"><i id="bookmarkButtonDark" class="fa fa-bookmark fa-3x" ng-if=" (!vm.isResultAvailable && vm.isBookmarkSelected) || vm.isBookmarked"></i></div>
+            </div>
+        </div>
+    </div>
+</div>

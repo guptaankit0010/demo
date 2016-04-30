@@ -1,0 +1,32 @@
+<div id="bookmarkArea">
+
+    <!--BOOKMARK LABEL AND COUNT VIEW-->
+    <div id="bookmarkLabel">
+        <div ng-if="vm.isMenuOpen">
+            <div class="hideMenuButton" ng-click="vm.hideMenu()" ><i class="material-icons hideMenuButtonIcon" >close</i></div>
+        </div>
+        <div id="childBookmarkLabel">
+            Bookmarks
+            <span id="bookmarkCount">({{vm.bookmarkCount}})</span>
+        </div>
+
+    </div>
+    <!--BOOKMARK LIST VIEW-->
+    <div id="bookmarkListArea">
+        <div ng-if="vm.isBookmarksAvailable">
+            <ul class="list-group" ng-repeat="item in vm.bookmarks" id="bookmarkList">
+                <li class="list-group-item" ng-click="vm.showBookmarkedDefinitions(item.word)" id="bookmarkListItem">
+                    {{item.word}}
+                    <span  class="badge" ng-click="vm.removeBookmark(item.word)"><i class="fa fa-remove"></i></span>
+                </li>
+            </ul>
+        </div>
+
+        <div ng-if="!vm.isBookmarksAvailable" id="noBookmarksAvailable">
+            <img id="noBookmarkImage" src="app/images/Bookmark_empty_state.png">
+            <div > There are no Bookmarks Available</div>
+        </div>
+    </div>
+
+</div>
+
